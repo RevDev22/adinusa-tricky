@@ -25,12 +25,12 @@ function sendAnswer(again){
             if(res.includes(index)){
               console.log('select ' + i + ' => ' + question[i].answer);
               question[i].answer = (question[i].answer * 1) + 1;
-              return false;
             }
           });
           sendAnswer(true);
         }else{
           sendAnswer(false);
+          alert('success');
         }
       }
     });
