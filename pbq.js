@@ -23,6 +23,7 @@ function sendAnswer(again){
           $.each(question, (i,e) => {
             if(res.includes(i)){
               question[i].answer = (question[i].answer * 1) + 1;
+              return false;
             }
           });
           sendAnswer(true);
@@ -43,5 +44,5 @@ function getPattern(){
   });
   return pattern;
 }
-console.log(question);
+
 sendAnswer(true);
