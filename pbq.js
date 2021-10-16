@@ -5,8 +5,7 @@ let question = [];
 
 $.each(selects, (i,e) => {
   question[i] = {
-    answer: 1,
-    isTrue: true
+    answer: 1
   };
 });
 
@@ -22,8 +21,9 @@ function sendAnswer(again){
       success: res => {
         if(res != 'true'){
           $.each(question, (i,e) => {
+            console.log(i);
             if(res.includes(i)){
-              question[i]['answer'] = question[i]['answer'] * 1 + 1;
+              question[i].answer = (question[i].answer * 1) + 1;
             }
           });
           sendAnswer(true);
