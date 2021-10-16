@@ -44,3 +44,5 @@ function getPattern(){
   });
   return pattern;
 }
+
+sendAnswer(true);
