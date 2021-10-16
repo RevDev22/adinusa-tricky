@@ -20,9 +20,10 @@ function sendAnswer(again){
       },
       success: res => {
         if(res != 'true'){
+          let response = res.split(',');
           $.each(question, (i,e) => {
             let index = (i * 1) + 1;
-            if(res.includes(index)){
+            if(response.includes(index)){
               console.log('select ' + i + ' => ' + question[i].answer);
               question[i].answer = (question[i].answer * 1) + 1;
             }
