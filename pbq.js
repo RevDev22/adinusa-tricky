@@ -25,7 +25,6 @@ function sendAnswer(again){
               question[i].answer = (question[i].answer * 1) + 1;
             }
           });
-          console.log(question);
           sendAnswer(true);
         }else{
           sendAnswer(false);
@@ -44,5 +43,5 @@ function getPattern(){
   });
   return pattern;
 }
-
+console.log(question);
 sendAnswer(true);
