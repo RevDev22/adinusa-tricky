@@ -20,7 +20,7 @@ function sendAjax(ind){
   $.ajax({
     url: urls[ind],
     method: 'GET',
-    success: res => {
+    complete: res => {
       sendAjax(ind + 1);
     }
   });
