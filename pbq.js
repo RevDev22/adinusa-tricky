@@ -16,7 +16,7 @@ function sendAnswer(again){
       method: 'POST',
       data: {
         simulation_code: simulation_code,
-        pattern_user: getPattern()
+        pattern_user: getPattern(),
       },
       success: res => {
         if(res != 'true'){
