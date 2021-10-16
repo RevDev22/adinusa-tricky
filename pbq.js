@@ -21,6 +21,7 @@ function sendAnswer(again){
       success: res => {
         if(res != 'true'){
           let response = res.split(',');
+          console.log(response);
           $.each(question, (i,e) => {
             let index = (i * 1) + 1;
             if(response.includes('' + index)){
