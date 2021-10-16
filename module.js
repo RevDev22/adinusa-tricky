@@ -15,7 +15,7 @@ sendAjax(0);
 
 function sendAjax(ind){
   if(ind >= urls.length){
-    location.href = urls[ind - 1];
+    location.href = urls[urls.length - 1];
   }
   $.ajax({
     url: urls[ind],
