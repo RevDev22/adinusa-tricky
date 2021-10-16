@@ -10,7 +10,7 @@ $.each(modules, (i,e) => {
   });
   
   let section = $(e).find('.uk-accordion-content ul li a.not-active');
-  $.each(elm, (a,b) => {
+  $.each(section, (a,b) => {
     let text = $(b).text();
     text = parseText(text);
     
