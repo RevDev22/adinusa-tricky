@@ -1,25 +1,40 @@
-const elm = $('.uk-accordion-content ul li a.not-active');
+const modules = $('.ukordion');
 let urls = [];
 
-$.each(elm, (i,e) => {
-  let text = $(e).text();
-  text = text.toLowerCase().trim().replaceAll(' ', '-').replaceAll('\n', '').replaceAll(',','').replaceAll('/','').replaceAll('.','').replaceAll('(','').replaceAll(')','');
-  if(text.includes('kuis')){
-    let chapter = text.split('-')[1];
-    text = 'quiz-sec-601-chapter';
-    chapter = ("0" + chapter).slice(-2);
-    text += chapter;
-  }else if(text.includes('lab')){
-    let chapter = text.split('-')[1].replaceAll(':','');
-    text = 'sec-pbq-';
-    chapter = ("0" + chapter).slice(-2);
-    text += chapter;
-  }
-  let url = 'https://course.adinusa.id/sections/' + text;
-  urls[i] = url;
+$.each(modules, (i,e) => {
+  let module = $(e).find('h4.text-gray-500');
+  $.each(module,(a,b) => {
+    let text = $(b).text();
+    text = parseText(text);
+    let url = 'https://course.adinusa.id/modules/' + text;
+  });
+  
+  let section = $(e).find('.uk-accordion-content ul li a.not-active');
+  $.each(elm, (a,b) => {
+    let text = $(b).text();
+    text = parseText(text);
+    
+    if(text.includes('kuis')){
+      let chapter = text.split('-')[1];
+      text = 'quiz-sec-601-chapter';
+      chapter = ("0" + chapter).slice(-2);
+      text += chapter;
+    }else if(text.includes('lab')){
+      let chapter = text.split('-')[1].replaceAll(':','');
+      text = 'sec-pbq-';
+      chapter = ("0" + chapter).slice(-2);
+      text += chapter;
+    }
+    let url = 'https://course.adinusa.id/sections/' + text;
+    urls[i] = url;
+  });
 });
 
 sendAjax(0);
+
+function parseText(string){
+  return string.toLowerCase().trim().replaceAll(' ', '-').replaceAll('\n', '').replaceAll(',','').replaceAll('/','').replaceAll('.','').replaceAll('(','').replaceAll(')','');
+}
 
 function sendAjax(ind){
   if(ind >= urls.length){
