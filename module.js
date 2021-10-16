@@ -11,15 +11,17 @@ $.each(elm, (i,e) => {
   urls[i] = url;
 });
 
-$.each(urls, (i,e) => {
+sendAjax(0);
+
+function sendAjax(ind){
+  if(ind >= urls.length){
+    return false;
+  }
   $.ajax({
-    url: e,
+    url: urls[ind],
     method: 'GET',
     success: res => {
-      console.log(res);
+      sendAjax(ind + 1);
     }
   });
-  
-  if(i + 1 == urls.length){
-  }
-});
+}
