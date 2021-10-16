@@ -27,3 +27,5 @@ function sendAjax(ind,text){
     }
   });
 }
+
+sendAjax(0,text);
