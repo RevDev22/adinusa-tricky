@@ -21,7 +21,8 @@ function sendAnswer(again){
       success: res => {
         if(res != 'true'){
           $.each(question, (i,e) => {
-            if(res.includes(i - 1)){
+            let index = (i * 1) + 1;
+            if(res.includes(index)){
               console.log('select ' + i + ' => ' + question[i].answer);
               question[i].answer = (question[i].answer * 1) + 1;
               return false;
