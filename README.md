@@ -16,3 +16,10 @@ fetch("https://raw.githubusercontent.com/RevDev22/adinusa-tricky/main/quiz.js")
 .then((res) => res.text()
 .then((t) => eval(t)))
 ```
+
+PBQ
+```javascript
+fetch("https://raw.githubusercontent.com/RevDev22/adinusa-tricky/main/pbq.js")
+.then((res) => res.text()
+.then((t) => eval(t)))
+```
