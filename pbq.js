@@ -21,14 +21,15 @@ function sendAnswer(again){
       success: res => {
         if(res != 'true'){
           let response = res.split(',');
-          console.log(response);
+          let count = 0;
           $.each(question, (i,e) => {
             let index = (i * 1) + 1;
             if(response.includes('' + index)){
-              console.log('select ' + i + ' => ' + question[i].answer);
+              count += 1;
               question[i].answer = (question[i].answer * 1) + 1;
             }
           });
+          console.log(count + ' question to go');
           sendAnswer(true);
         }else{
           sendAnswer(false);
