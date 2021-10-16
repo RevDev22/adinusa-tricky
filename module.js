@@ -3,7 +3,7 @@ let urls = [];
 
 $.each(elm, (i,e) => {
   let text = $(e).text();
-  text = text.toLowerCase().trim().replaceAll(' ', '-').replaceAll('\n', '').replaceAll(',','');
+  text = text.toLowerCase().trim().replaceAll(' ', '-').replaceAll('\n', '').replaceAll(',','').replaceAll('/','');
   let url = 'https://course.adinusa.id/sections/' + text;
   if(text.includes('kuis') || text.includes('lab')){
     return false;
