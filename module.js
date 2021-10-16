@@ -50,7 +50,7 @@ function sendAjax(ind){
     },
     error: res => {
       urls[(ind * 1) - 1] = urls[(ind * 1) - 1] + '-1';
-      sendAjax(ind);
+      sendAjax(ind - 1);
     }
   });
 }
