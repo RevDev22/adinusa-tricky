@@ -21,11 +21,9 @@ function sendAjax(ind,text){
     success: res => {
       if(res.includes(text)){
         console.log(res);
-      }else{
-        sendAjax(ind + 1,text);
       }
     },
-    error: res => sendAjax(ind + 1, text),
+    complete: res => sendAjax(ind + 1, text),
   });
 }
 
