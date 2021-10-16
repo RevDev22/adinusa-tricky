@@ -13,7 +13,7 @@ $.each(elm, (i,e) => {
 
 function sendAjax(ind,text){
   if(ind >= urls.length){
-    location.href = urls[urls.length - 1];
+    return false;
   }
   $.ajax({
     url: urls[ind],
