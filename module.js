@@ -3,14 +3,16 @@ let urls = [];
 
 $.each(modules, (i,e) => {
   let module = $(e).find('h4.text-gray-500');
+  let sections = $(e).find('.uk-accordion-content ul li a.not-active');
+  
   $.each(module,(a,b) => {
     let text = $(b).text();
     text = parseText(text);
     let url = 'https://course.adinusa.id/modules/' + text;
+    urls[i] = url;
   });
   
-  let section = $(e).find('.uk-accordion-content ul li a.not-active');
-  $.each(section, (a,b) => {
+  $.each(sections, (a,b) => {
     let text = $(b).text();
     text = parseText(text);
     
