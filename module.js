@@ -1,4 +1,4 @@
-const elm = $('.uk-accordion-content[aria-hidden=false] ul li a');
+const elm = $('.uk-accordion-content[aria-hidden=false] ul li a.not-active');
 let urls = [];
 
 $.each(elm, (i,e) => {
