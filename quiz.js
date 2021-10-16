@@ -10,5 +10,5 @@ $.ajax({
   url: url,
   method: 'POST',
   data: data,
-  success: res => console.log(res);
+  success: res => console.log(res)
 });
