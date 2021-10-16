@@ -20,8 +20,11 @@ function sendAjax(ind){
   $.ajax({
     url: urls[ind],
     method: 'GET',
-    complete: res => {
+    success: res => {
       sendAjax(ind + 1);
+    },
+    error: res => {
+      location.href = urls[(ind * 1) - 1];
     }
   });
 }
