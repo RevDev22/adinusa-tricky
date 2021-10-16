@@ -21,11 +21,11 @@ function sendAnswer(again){
       success: res => {
         if(res != 'true'){
           $.each(question, (i,e) => {
-            console.log(i);
             if(res.includes(i)){
               question[i].answer = (question[i].answer * 1) + 1;
             }
           });
+          console.log(question);
           sendAnswer(true);
         }else{
           sendAnswer(false);
