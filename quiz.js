@@ -24,7 +24,8 @@ function sendAjax(ind,text){
       }else{
         sendAjax(ind + 1,text);
       }
-    }
+    },
+    error: res => sendAjax(ind + 1, text),
   });
 }
 
