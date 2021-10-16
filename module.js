@@ -9,7 +9,7 @@ $.each(modules, (i,e) => {
     let text = $(b).text();
     text = parseText(text);
     let url = 'https://course.adinusa.id/modules/' + text;
-    urls[i] = url;
+    urls.push(url);
   });
   
   $.each(sections, (a,b) => {
@@ -28,7 +28,7 @@ $.each(modules, (i,e) => {
       text += chapter;
     }
     let url = 'https://course.adinusa.id/sections/' + text;
-    urls[i] = url;
+    urls.push(url);
   });
 });
 
