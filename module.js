@@ -49,8 +49,8 @@ function sendAjax(ind){
       sendAjax(ind + 1);
     },
     error: res => {
-      urls[ind - 1] = urls[ind - 1] + '-1';
-      sendAjax(ind - 1);
+      urls[ind] = urls[ind] + '-1';
+      sendAjax(ind);
     }
   });
 }
