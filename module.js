@@ -4,10 +4,18 @@ let urls = [];
 $.each(elm, (i,e) => {
   let text = $(e).text();
   text = text.toLowerCase().trim().replaceAll(' ', '-').replaceAll('\n', '').replaceAll(',','').replaceAll('/','').replaceAll('.','').replaceAll('(','').replaceAll(')','');
-  let url = 'https://course.adinusa.id/sections/' + text;
-  if(text.includes('kuis') || text.includes('lab')){
-    return false;
+  if(text.includes('kuis')){
+    let chapter = text.split('-')[1];
+    text = 'quiz-sec-601-chapter';
+    chapter = ("0" + chapter).slice(-2);
+    text += chapter;
+  }else if(text.includes('lab')){
+    let chapter = text.split('-')[1].replaceAll(':','');
+    text = 'sec-pbq-';
+    chapter = ("0" + chapter).slice(-2);
+    text += chapter;
   }
+  let url = 'https://course.adinusa.id/sections/' + text;
   urls[i] = url;
 });
 
@@ -24,7 +32,8 @@ function sendAjax(ind){
       sendAjax(ind + 1);
     },
     error: res => {
-      location.href = urls[(ind * 1) - 1];
+      urls[ind * 1] = urls[ind * 1] + '-1';
+      sendAjax(ind);
     }
   });
 }
