@@ -23,4 +23,4 @@ $.each(urls, (i,e) => {
   if(i + 1 == urls.length){
 //     location.href = e;
   }
-});
+})
